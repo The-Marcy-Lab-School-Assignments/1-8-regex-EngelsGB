@@ -1,12 +1,9 @@
 const swapAllCases = (str) => {
-  let result = '';
-  for (let i = 0; i < str.length; i++) {
-    const char = str[i];
-    const isUppercaseLetter = char === char.toUpperCase();
-    result += isUppercaseLetter ? char.toLowerCase() : char.toUpperCase();
+  const changeCase = (match, offset, string) => {
+    if(/[a-z]/.test(match)) return match.toUpperCase();
+    if(/[A-Z]/.test(match)) return match.toLowerCase();
   }
-
-  return result;
+  return (str.replaceAll(/[a-zA-Z]/g, changeCase));
 };
 
 module.exports = {
